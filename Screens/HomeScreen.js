@@ -16,7 +16,7 @@ const HomeScreen = (props) => {
   const fovCalcHandler = () => {
     navigation.navigate("FieldOfView");
   };
-  console.log(Images);
+
   return (
     <View style={styles.container}>
       <View style={styles.row}>
