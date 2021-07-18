@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
 const Settings = (props) => {
@@ -6,7 +6,9 @@ const Settings = (props) => {
 
 
 
-    return (<Text style={styles.container}>Settings screen</Text>)
+    return (<ScrollView>  
+        <Text style={styles.container}>Settings screen</Text>
+        </ScrollView>)
 }
 
 
