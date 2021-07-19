@@ -17,14 +17,14 @@ const TextInputController = (props) => {
         <View style={styles.twoInput}>
           <TextInput
             style={styles.input}
-            keyboardType="numeric"
+            keyboardType="number-pad"
             value={input}
             onChangeText={changeTextHandler}
           ></TextInput>
           <Text style={styles.xSpacing}>X</Text>
           <TextInput
             style={styles.input}
-            keyboardType="numeric"
+            keyboardType="number-pad"
             value={secondInput}
             onChangeText={changeTextSecondHandler}
           ></TextInput>
@@ -32,7 +32,7 @@ const TextInputController = (props) => {
       ) : (
         <TextInput
           style={styles.input}
-          keyboardType="numeric"
+          keyboardType="number-pad"
           value={input}
           onChangeText={changeTextHandler}
         ></TextInput>
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     height: 20,
     borderBottomWidth: 1,
     flexGrow: 100,
+    textAlign: "center",
   },
   twoInput: {
     flex: 1,

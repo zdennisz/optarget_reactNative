@@ -1,18 +1,11 @@
 import React from "react";
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ImageBackground,
-} from "react-native";
+import { TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
 const HomeScreenButton = (props) => {
   const navigateHandler = () => {
     props.navigate();
   };
-  console.log(props.img);
+
   return (
     <TouchableOpacity style={styles.container} onPress={navigateHandler}>
       <Image style={styles.innerImg} source={props.img} />
