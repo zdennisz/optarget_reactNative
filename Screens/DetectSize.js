@@ -14,7 +14,7 @@ import { GeneralImages } from "../Component/Images";
 
 const DetectSize = (props) => {
   const [isValid, setIsValid] = useState(false);
-
+  let TableComponent;
   const calculateDetSizeHandler = () => {
     setIsValid(true);
 
@@ -22,6 +22,12 @@ const DetectSize = (props) => {
 
     //TODO render the table
   };
+
+  if (isValid) {
+    TableComponent = <TableLayout />;
+  } else {
+    TableComponent = <View />;
+  }
 
   return (
     <ScrollView>
@@ -33,19 +39,23 @@ const DetectSize = (props) => {
             <TextInputController
               image={GeneralImages[1].image}
               text="Focal Length (mm):"
+              maxLength={4}
             />
             <TextInputController
               image={GeneralImages[2].image}
               text="Detector Pitch (mic):"
+              maxLength={2}
             />
             <TextInputController
               image={GeneralImages[3].image}
               text="Target Distance (m):"
+              maxLength={4}
             />
             <TextInputController
               image={GeneralImages[4].image}
               twoInputValues={true}
               text="Target Size (m):"
+              maxLength={2}
             />
           </View>
 
@@ -56,7 +66,7 @@ const DetectSize = (props) => {
             ></Button>
           </View>
 
-          <View style={styles.table}>{isValid ? <TableLayout /> : null}</View>
+          <View style={styles.table}>{TableComponent}</View>
         </View>
       </KeyboardAvoidingView>
     </ScrollView>
