@@ -6,10 +6,12 @@ const TextInputController = (props) => {
   const [secondInput, setSecondInput] = useState();
 
   const changeTextHandler = (event) => {
-    console.log(event);
+    props.handler(event);
   };
 
-  const changeTextSecondHandler = (event) => {};
+  const changeTextSecondHandler = (event) => {
+    props.secondHandler(event);
+  };
 
   return (
     <View style={styles.container}>
