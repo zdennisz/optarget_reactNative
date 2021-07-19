@@ -5,7 +5,9 @@ const TextInputController = (props) => {
   const [input, setInput] = useState();
   const [secondInput, setSecondInput] = useState();
 
-  const changeTextHandler = (event) => {};
+  const changeTextHandler = (event) => {
+    console.log(event);
+  };
 
   const changeTextSecondHandler = (event) => {};
 
@@ -20,6 +22,7 @@ const TextInputController = (props) => {
             keyboardType="number-pad"
             value={input}
             onChangeText={changeTextHandler}
+            maxLength={props.maxLength}
           ></TextInput>
           <Text style={styles.xSpacing}>X</Text>
           <TextInput
@@ -27,6 +30,7 @@ const TextInputController = (props) => {
             keyboardType="number-pad"
             value={secondInput}
             onChangeText={changeTextSecondHandler}
+            maxLength={props.maxLength}
           ></TextInput>
         </View>
       ) : (
@@ -35,6 +39,7 @@ const TextInputController = (props) => {
           keyboardType="number-pad"
           value={input}
           onChangeText={changeTextHandler}
+          maxLength={props.maxLength}
         ></TextInput>
       )}
     </View>
