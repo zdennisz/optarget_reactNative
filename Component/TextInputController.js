@@ -21,7 +21,7 @@ const TextInputController = (props) => {
         <View style={styles.twoInput}>
           <TextInput
             style={styles.input}
-            keyboardType="number-pad"
+            keyboardType="numeric"
             value={input}
             onChangeText={changeTextHandler}
             maxLength={props.maxLength}
@@ -29,7 +29,7 @@ const TextInputController = (props) => {
           <Text style={styles.xSpacing}>X</Text>
           <TextInput
             style={styles.input}
-            keyboardType="number-pad"
+            keyboardType="numeric"
             value={secondInput}
             onChangeText={changeTextSecondHandler}
             maxLength={props.maxLength}

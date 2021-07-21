@@ -101,7 +101,7 @@ const DetectSize = (props) => {
               image={GeneralImages.taretSizeSrc}
               twoInputValues={true}
               text="Target Size (m):"
-              maxLength={2}
+              maxLength={3}
               handler={target_sizeWidthHandler}
               secondHandler={target_sizeHeightHandler}
             />
