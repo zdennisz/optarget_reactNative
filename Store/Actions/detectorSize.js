@@ -5,20 +5,25 @@ export const TARGET_SIZE_WIDTH = "TARGET_SIZE_WIDTH";
 export const TARGET_SIZE_HEIGHT = "TARGET_SIZE_HEIGHT";
 
 export const focal_length = (focalLength) => {
-  return { type: FOCAL_LENGTH, focalLength: focalLength };
+  let fl = parseInt(focalLength, 10);
+  return { type: FOCAL_LENGTH, focalLength: fl };
 };
 
 export const detector_pitch = (detectorPitch) => {
-  return { type: DETECTOR_PITCH, detectorPitch: detectorPitch };
+  let dp = parseInt(detectorPitch, 10);
+  return { type: DETECTOR_PITCH, detectorPitch: dp };
 };
 
 export const target_distance = (targetDistance) => {
-  return { type: TARGET_DISTANCE, targetDistance: targetDistance };
+  let td = parseInt(targetDistance, 10);
+  return { type: TARGET_DISTANCE, targetDistance: td };
 };
 
 export const target_sizeWidth = (targetSize) => {
-  return { type: TARGET_SIZE_WIDTH, targetSizeWidth: targetSize };
+  let ts = parseInt(targetSize, 10);
+  return { type: TARGET_SIZE_WIDTH, targetSizeWidth: ts };
 };
 export const target_sizeHeight = (targetSize) => {
-  return { type: TARGET_SIZE_HEIGHT, targetSizeHeight: targetSize };
+  let ts = parseInt(targetSize, 10);
+  return { type: TARGET_SIZE_HEIGHT, targetSizeHeight: ts };
 };

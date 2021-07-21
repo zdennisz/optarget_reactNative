@@ -35,20 +35,20 @@ const DetectSize = (props) => {
   };
 
   const focalLengthHandler = (val) => {
-    dispatch(focal_length(parseInt(val, 10)));
+    dispatch(focal_length(val));
   };
   const detectorSizeHandler = (val) => {
-    dispatch(detector_pitch(parseInt(val, 10)));
+    dispatch(detector_pitch(val));
   };
   const targetDistanceHandler = (val) => {
-    dispatch(target_distance(parseInt(val, 10)));
+    dispatch(target_distance(val));
   };
 
   const target_sizeWidthHandler = (val) => {
-    dispatch(target_sizeWidth(parseInt(val, 10)));
+    dispatch(target_sizeWidth(val));
   };
   const target_sizeHeightHandler = (val) => {
-    dispatch(target_sizeHeight(parseInt(val, 10)));
+    dispatch(target_sizeHeight(val));
   };
 
   const calculateOutputHandler = (storeValues) => {
