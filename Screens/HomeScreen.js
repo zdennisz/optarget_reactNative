@@ -22,26 +22,26 @@ const HomeScreen = (props) => {
       <View style={styles.row}>
         <HomeScreenButton
           title="Required Lens Calculator"
-          img={Images[0].image}
+          img={Images.requiredLensSrc}
           navigate={() => {
             console.log("Button was pressed");
           }}
         />
         <HomeScreenButton
           title="Detector Size Calculator"
-          img={Images[1].image}
+          img={Images.dimensionsSrc}
           navigate={detectorSizeHandler}
         />
       </View>
       <View style={styles.row}>
         <HomeScreenButton
           title="Field Of View Calculator"
-          img={Images[2].image}
+          img={Images.fieldOfViewSrc}
           navigate={fovCalcHandler}
         />
         <HomeScreenButton
           title="DRI Calculator"
-          img={Images[3].image}
+          img={Images.driCalculatorSrc}
           navigate={driCalcHandler}
         />
       </View>
