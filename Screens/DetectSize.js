@@ -52,12 +52,12 @@ const DetectSize = (props) => {
   };
 
   const calculateOutputHandler = (storeValues) => {
-    let ifov = storeValues.detectorPitch / (storeValues.focalLength * 1000);
-    let width =
+    const ifov = storeValues.detectorPitch / (storeValues.focalLength * 1000);
+    const width =
       storeValues.targetSize.width / (ifov * storeValues.targetDistance);
-    let height =
+    const height =
       storeValues.targetSize.height / (ifov * storeValues.targetDistance);
-    let total = height * width;
+    const total = height * width;
     return {
       width: width,
       height: height,
