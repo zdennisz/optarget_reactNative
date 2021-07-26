@@ -1,7 +1,4 @@
-import { FOCAL_LENGTH } from "../Actions/detectorSize";
-import { DETECTOR_PITCH } from "../Actions/detectorSize";
-import { TARGET_DISTANCE } from "../Actions/detectorSize";
-import { TARGET_SIZE_WIDTH, TARGET_SIZE_HEIGHT } from "../Actions/detectorSize";
+import { FOCAL_LENGTH, DETECTOR_PITCH, TARGET_DISTANCE, TARGET_SIZE_WIDTH, TARGET_SIZE_HEIGHT } from "../Actions/detectorSize";
 
 const initialState = {
   focalLength: 0,

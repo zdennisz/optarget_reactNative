@@ -11,12 +11,14 @@ import LenstargetInput from "./Screens/LensTargetInput";
 import DetectSize from "./Screens/DetectSize";
 import { createStore, combineReducers } from "redux";
 import detectorSizeReducer from "./Store/Reducers/detectorSize";
+import settingsReducer from "./Store/Reducers/settings"
 import { Provider } from "react-redux";
 
 const Stack = createStackNavigator();
 
 const rootReducer = combineReducers({
   detectorSize: detectorSizeReducer,
+  settings: settingsReducer
 });
 
 const store = createStore(rootReducer);
