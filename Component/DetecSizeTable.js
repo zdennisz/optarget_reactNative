@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import Colors from "../Constants/Colors";
-import { GeneralImages } from "../Component/Images";
+import { GeneralImages } from "./Images";
 import TitleText from "./TitleText";
 
-const TableLayout = (props) => {
+const DetecSizeTable = (props) => {
   const { inputData } = props;
 
   return (
@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TableLayout;
+export default DetecSizeTable;

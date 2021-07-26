@@ -10,9 +10,10 @@ import TextInputController from "../Component/TextInputController";
 import { GeneralImages } from "../Component/Images";
 import { focal_length, detector_pitch } from "../Store/Actions/detectorSize";
 import { useSelector, useDispatch } from "react-redux";
-import Colors from "../Constants/Colors";
 import LineDetectionSettings from "../Constants/LineDetection";
 import { Nato, Human, Obj } from "../Constants/TargetSizes";
+import DRITable from "../Component/DRITable";
+
 const DRICalculator = (props) => {
   const dispatch = useDispatch();
   const [isValid, setisValid] = useState();
@@ -27,12 +28,6 @@ const DRICalculator = (props) => {
     dispatch(detector_pitch(val));
   };
 
-  if (isValid) {
-    //Create table layout to fit the two tables that i have
-    //TableComponent = <View></View>;
-  } else {
-    TableComponent = <View></View>;
-  }
 
   const calculateDRITable = (data) => {
     let result = {
@@ -144,6 +139,16 @@ const DRICalculator = (props) => {
       (fl / ((lp * sp) / 1000000)) * (Math.sqrt(ts.width * ts.height) / 1000)
     );
   };
+
+
+  if (isValid) {
+
+    const result = calculateDRITable(data);
+    TableComponent = <DRITable inputData={result} />;
+  } else {
+    TableComponent = <View></View>;
+  }
+
   return (
     <ScrollView>
       <KeyboardAvoidingView
@@ -168,7 +173,7 @@ const DRICalculator = (props) => {
             <Button
               title="Calculate"
               onPress={() => {
-                calculateDRITable(data);
+                setisValid(state => !state)
               }}
             ></Button>
           </View>

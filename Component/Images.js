@@ -1,4 +1,4 @@
-export const Images = {
+const Images = {
   requiredLensSrc: require("../assets/HomeImages/requiredLens.png"),
 
   dimensionsSrc: require("../assets/HomeImages/dimension.png"),
@@ -8,7 +8,7 @@ export const Images = {
   driCalculatorSrc: require("../assets/HomeImages/driCalculator.png"),
 };
 
-export const GeneralImages = {
+const GeneralImages = {
   dimensionSrc: require("../assets/GeneralImages/dimension.png"),
 
   focalLengthSrc: require("../assets/GeneralImages/focalLength.png"),
@@ -19,3 +19,11 @@ export const GeneralImages = {
 
   taretSizeSrc: require("../assets/GeneralImages/targetSize.png"),
 };
+
+const DriTableImages = {
+  tankSrc: require("../assets/DriTableImages/tank.png"),
+  humanSrc: require("../assets/DriTableImages/human.png"),
+  laptopSrc: require("../assets/DriTableImages/laptop.png")
+}
+
+export { Images, GeneralImages, DriTableImages }
