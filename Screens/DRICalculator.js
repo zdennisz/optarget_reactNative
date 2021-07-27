@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import TextInputController from "../Component/TextInputController";
-import { GeneralImages } from "../Component/Images";
+import { GeneralImages } from "../Constants/Images";
 import { focal_length, detector_pitch } from "../Store/Actions/detectorSize";
 import { useSelector, useDispatch } from "react-redux";
 import LineDetectionSettings from "../Constants/LineDetection";

@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import TextInputController from "../Component/TextInputController";
 import DetecSizeTable from "../Component/DetecSizeTable";
-import { GeneralImages } from "../Component/Images";
+import { GeneralImages } from "../Constants/Images";
 import { useSelector, useDispatch } from "react-redux";
 import {
   focal_length,

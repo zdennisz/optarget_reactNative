@@ -22,8 +22,18 @@ const GeneralImages = {
 
 const DriTableImages = {
   tankSrc: require("../assets/DriTableImages/tank.png"),
+
   humanSrc: require("../assets/DriTableImages/human.png"),
+
   laptopSrc: require("../assets/DriTableImages/laptop.png")
 }
 
-export { Images, GeneralImages, DriTableImages }
+const FieldOfViewImages = {
+  hfovSrc: require("../assets/FieldOfViewImages/hfov.png"),
+
+  vfovSrc: require("../assets/FieldOfViewImages/vfov.png"),
+
+  ifovSrc: require("../assets/FieldOfViewImages/ifov.png")
+
+}
+export { Images, GeneralImages, DriTableImages, FieldOfViewImages }

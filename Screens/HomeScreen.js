@@ -1,7 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import React from "react";
 import HomeScreenButton from "../Component/HomeScreenButton";
-import { Images } from "../Component/Images";
+import { Images } from "../Constants/Images";
 
 const HomeScreen = (props) => {
   const { navigation } = props;

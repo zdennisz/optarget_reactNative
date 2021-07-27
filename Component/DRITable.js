@@ -1,11 +1,12 @@
 import React from 'react'
 import { Text, View, StyleSheet, Image } from 'react-native'
 import Colors from '../Constants/Colors'
-import { DriTableImages } from './Images'
+import { DriTableImages } from '../Constants/Images'
+
 const DRITable = (props) => {
 
     const { inputData } = props
-    console.log(inputData)
+
     return (<View style={styles.container}>
         <View style={styles.firstRow}>
             <View style={styles.spacer} />

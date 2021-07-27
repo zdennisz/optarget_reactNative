@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import Colors from "../Constants/Colors";
-import { GeneralImages } from "./Images";
+import { GeneralImages } from "../Constants/Images";
 import TitleText from "./TitleText";
 
 const DetecSizeTable = (props) => {
