@@ -1,10 +1,14 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Modal, Text } from "react-native";
 import React from "react";
 import HomeScreenButton from "../Component/HomeScreenButton";
 import { Images } from "../Constants/Images";
+import { useState } from "react";
+import PopupScreen from "../Component/PopupScreen/PopupScreen";
 
 const HomeScreen = (props) => {
   const { navigation } = props;
+
+  const [modalVisible, setModalVisible] = useState(false)
 
   const detectorSizeHandler = () => {
     navigation.navigate("DetectSize");
@@ -17,15 +21,35 @@ const HomeScreen = (props) => {
     navigation.navigate("FieldOfView");
   };
 
+  const requiredLensHandler = () => {
+    setModalVisible(modalVisible => !modalVisible)
+
+  }
+  const operateModalHandler = (value) => {
+    switch (value) {
+      case 'close':
+        setModalVisible(modalVisible => !modalVisible);
+        break;
+      case 'angle':
+        setModalVisible(modalVisible => !modalVisible);
+        navigation.navigate("LensAngleInput");
+        break;
+      case 'target':
+        setModalVisible(modalVisible => !modalVisible);
+        navigation.navigate("LensTargetInput");
+        break;
+    }
+
+  }
+
   return (
     <View style={styles.container}>
+      {modalVisible && <PopupScreen handler={operateModalHandler} visibility={modalVisible} />}
       <View style={styles.row}>
         <HomeScreenButton
           title="Required Lens Calculator"
           img={Images.requiredLensSrc}
-          navigate={() => {
-            console.log("Button was pressed");
-          }}
+          navigate={requiredLensHandler}
         />
         <HomeScreenButton
           title="Detector Size Calculator"
