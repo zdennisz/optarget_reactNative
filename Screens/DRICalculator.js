@@ -4,6 +4,7 @@ import {
   View,
   ScrollView,
   KeyboardAvoidingView,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import TextInputController from "../Component/TextInputController";
@@ -17,15 +18,27 @@ import DRITable from "../Component/DRITable";
 const DRICalculator = (props) => {
   const dispatch = useDispatch();
   const [isValid, setisValid] = useState();
+  const [fl, setFl] = useState(false)
+  const [detPitch, setDetPitch] = useState(false)
   let TableComponent;
   const data = useSelector((state) => state.detectorSize);
 
   const focalLengthHandler = (val) => {
     dispatch(focal_length(val));
+    if (val != "") {
+      setFl(true)
+    } else {
+      setFl(false)
+    }
   };
 
   const detectorPitchHandler = (val) => {
     dispatch(detector_pitch(val));
+    if (val != "") {
+      setDetPitch(true)
+    } else {
+      setDetPitch(false)
+    }
   };
 
 
@@ -139,7 +152,16 @@ const DRICalculator = (props) => {
       (fl / ((lp * sp) / 1000000)) * (Math.sqrt(ts.width * ts.height) / 1000)
     );
   };
-
+  const checkIfValidHandler = () => {
+    if (fl && detPitch) {
+      setisValid((state) => !state)
+    } else {
+      Alert.alert(
+        "Error !",
+        "Please fill all the fields !"
+      )
+    }
+  }
 
   if (isValid) {
 
@@ -172,9 +194,7 @@ const DRICalculator = (props) => {
           <View style={styles.btnContainer}>
             <Button
               title="Calculate"
-              onPress={() => {
-                setisValid(state => !state)
-              }}
+              onPress={checkIfValidHandler}
             ></Button>
           </View>
           <View style={styles.tableContainer}>{TableComponent}</View>

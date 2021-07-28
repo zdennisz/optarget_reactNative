@@ -6,6 +6,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Platform,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import TextInputController from "../Component/TextInputController";
@@ -26,29 +27,66 @@ const DetectSize = (props) => {
   let TableComponent;
   const dispatch = useDispatch();
   const data = useSelector((state) => state.detectorSize);
+  const [fl, setFl] = useState(false)
+  const [det_pitch, setDet_Pitch] = useState(false)
+  const [targetDis, setTargetDis] = useState(false)
+  const [targetSizeW, setTargetSizeW] = useState(false)
+  const [targetSizeH, setTargetSizeH] = useState(false)
 
   const calculateDetSizeHandler = () => {
     Keyboard.dismiss();
     // only if the data is valid set the value to true else show error message and dont continue
+    if (fl && det_pitch && targetDis && targetSizeH && targetSizeW) {
+      Alert.alert(
+        "Error !",
+        "Please fill all the fields !"
+      )
+    } else {
+      setIsValid(true);
+    }
 
-    setIsValid(true);
   };
 
   const focalLengthHandler = (val) => {
     dispatch(focal_length(val));
+    if (val != "") {
+      setFl(true)
+    } else {
+      setFl(false)
+    }
   };
   const detectorSizeHandler = (val) => {
     dispatch(detector_pitch(val));
+    if (val != "") {
+      setDet_Pitch(true)
+    } else {
+      setDet_Pitch(false)
+    }
   };
   const targetDistanceHandler = (val) => {
     dispatch(target_distance(val));
+    if (val != "") {
+      setTargetDis(true)
+    } else {
+      setTargetDis(false)
+    }
   };
 
   const target_sizeWidthHandler = (val) => {
     dispatch(target_sizeWidth(val));
+    if (val != "") {
+      setTargetSizeW(true)
+    } else {
+      setTargetSizeW(false)
+    }
   };
   const target_sizeHeightHandler = (val) => {
     dispatch(target_sizeHeight(val));
+    if (val != "") {
+      setTargetSizeH(true)
+    } else {
+      setTargetSizeH(false)
+    }
   };
 
   const calculateOutputHandler = (storeValues) => {

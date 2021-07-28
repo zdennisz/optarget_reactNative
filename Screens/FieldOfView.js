@@ -1,4 +1,4 @@
-import { StyleSheet, View, Button, ScrollView, KeyboardAvoidingView } from "react-native";
+import { StyleSheet, View, Button, ScrollView, KeyboardAvoidingView, Alert } from "react-native";
 import React, { useState } from "react";
 import TextInputController from "../Component/TextInputController";
 import { FieldOfViewImages, GeneralImages } from "../Constants/Images";
@@ -13,40 +13,79 @@ const FieldOfView = (props) => {
   const [isValid, setIsValid] = useState(false)
   const settingsData = useSelector((state) => state.settings)
   const detectorData = useSelector((state) => state.detectorSize)
+  const [focalLength, setFocalLength] = useState(false)
+  const [detPitch, setDetPitch] = useState(false)
+  const [det_w, setDet_w] = useState(false)
+  const [det_h, setDet_h] = useState(false)
   const [result, setResult] = useState()
   const dispatch = useDispatch();
 
   const detectorSizeWidthHandler = (val) => {
     dispatch(detector_size_width(val))
+    if (val != "") {
+      setDet_w(true)
+    } else {
+      setDet_w(false)
+    }
+
   }
 
   const detectorSizeHeightHandler = (val) => {
     dispatch(detector_size_height(val))
+    if (val != "") {
+      setDet_h(true)
+    } else {
+      setDet_h(false)
+    }
+
   }
 
   const detectorPitchHandler = (val) => {
     dispatch(detector_pitch(val))
+    if (val != "") {
+      setDetPitch(true)
+    } else {
+      setDetPitch(false)
+    }
+
+
   }
 
   const focalLengthHandler = (val) => {
     dispatch(focal_length(val))
+    if (val != "") {
+      setFocalLength(true)
+    } else {
+      setFocalLength(false)
+    }
+
   }
 
   const calcHandler = () => {
-    const hFovVal = calcHfov(detectorData.detectorPitch, settingsData.detectorSize.width, detectorData.focalLength)
 
-    const vFovVal = calcVfov(settingsData.detectorSize.height, settingsData.detectorSize.width, hFovVal)
+    if (focalLength && detPitch && det_w && det_h) {
+      const hFovVal = calcHfov(detectorData.detectorPitch, settingsData.detectorSize.width, detectorData.focalLength)
 
-    const ifovval = calcIfov(detectorData.detectorPitch, detectorData.focalLength)
+      const vFovVal = calcVfov(settingsData.detectorSize.height, settingsData.detectorSize.width, hFovVal)
 
-    const result = {
-      hfov: hFovVal,
-      vfov: vFovVal,
-      ifov: ifovval
+      const ifovval = calcIfov(detectorData.detectorPitch, detectorData.focalLength)
+
+      const result = {
+        hfov: hFovVal,
+        vfov: vFovVal,
+        ifov: ifovval
+      }
+
+      setResult(result)
+      setIsValid(true)
+    } else {
+      Alert.alert(
+        "Missing fields!",
+        "Please fill all the fields !",
+
+      )
     }
 
-    setResult(result)
-    setIsValid(true)
 
   }
 
