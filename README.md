@@ -1,5 +1,4 @@
-# OpTarget React-Native 
-
+# OpTarget React-Native [*Under development* :construction_worker:]
 
 
 This is my clone of an app that i released at the Android play store.
