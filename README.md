@@ -3,6 +3,7 @@
 
 
 This is my clone of an app that i released at the Android play store.
+
 The purpose is to learn `React-Native` via `expo` .
 
 
