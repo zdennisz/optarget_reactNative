@@ -157,9 +157,10 @@ const DRICalculator = (props) => {
       setisValid((state) => !state)
     } else {
       Alert.alert(
-        "Error !",
+        "Missing Data",
         "Please fill all the fields !"
       )
+      setisValid((state) => !state)
     }
   }
 

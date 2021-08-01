@@ -1,4 +1,4 @@
-import { StyleSheet, View, Button, ScrollView, KeyboardAvoidingView, Alert } from "react-native";
+import { StyleSheet, View, Button, Keyboard, KeyboardAvoidingView, Alert } from "react-native";
 import React, { useState } from "react";
 import TextInputController from "../Component/TextInputController";
 import { FieldOfViewImages, GeneralImages } from "../Constants/Images";
@@ -78,12 +78,14 @@ const FieldOfView = (props) => {
 
       setResult(result)
       setIsValid(true)
+      Keyboard.dismiss()
     } else {
       Alert.alert(
-        "Missing fields!",
+        "Missing Data",
         "Please fill all the fields !",
 
       )
+      setIsValid(false)
     }
 
 
@@ -102,47 +104,47 @@ const FieldOfView = (props) => {
   }
 
   return (
-    <ScrollView>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "android" ? "padding" : "position"}
-      >
-        <View style={styles.container}>
-          <View style={styles.input}>
-            <TextInputController
-              image={GeneralImages.focalLengthSrc}
-              text="Focal Length (mm):"
-              maxLength={2}
-              handler={focalLengthHandler} />
-            <TextInputController
-              image={GeneralImages.pixelSizeSrc}
-              text="Detector Pitch (mic):"
-              maxLength={2}
-              handler={detectorPitchHandler} />
-            <TextInputController
-              image={GeneralImages.dimensionSrc}
-              text="Detector Size (px):"
-              twoInputValues={true}
-              maxLength={4}
-              handler={detectorSizeWidthHandler}
-              secondHandler={detectorSizeHeightHandler} />
-          </View>
-          <View style={styles.buttonContainer}>
-            <View style={styles.button}>
-              <Button title="Calculate" onPress={calcHandler}></Button>
-            </View>
-          </View>
-          <View style={styles.outputContainer}>
-            {isValid &&
-              <View style={styles.outputCom}>
-                <OutputTextView text="HFOV (deg):" image={FieldOfViewImages.hfovSrc} result={result.hfov} resLength={1} />
-                <OutputTextView text="VFOV (deg):" image={FieldOfViewImages.vfovSrc} result={result.vfov} resLength={1} />
-                <OutputTextView text="IFOV (deg):" image={FieldOfViewImages.ifovSrc} result={result.ifov} />
-              </View>
-            }
+
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "android" ? "padding" : "position"}
+    >
+      <View style={styles.container}>
+        <View style={styles.input}>
+          <TextInputController
+            image={GeneralImages.focalLengthSrc}
+            text="Focal Length (mm):"
+            maxLength={2}
+            handler={focalLengthHandler} />
+          <TextInputController
+            image={GeneralImages.pixelSizeSrc}
+            text="Detector Pitch (mic):"
+            maxLength={2}
+            handler={detectorPitchHandler} />
+          <TextInputController
+            image={GeneralImages.dimensionSrc}
+            text="Detector Size (px):"
+            twoInputValues={true}
+            maxLength={4}
+            handler={detectorSizeWidthHandler}
+            secondHandler={detectorSizeHeightHandler} />
+        </View>
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Button title="Calculate" onPress={calcHandler}></Button>
           </View>
         </View>
-      </KeyboardAvoidingView>
-    </ScrollView>
+        <View style={styles.outputContainer}>
+          {isValid &&
+            <View style={styles.outputCom}>
+              <OutputTextView text="HFOV (deg):" image={FieldOfViewImages.hfovSrc} result={result.hfov} resLength={1} />
+              <OutputTextView text="VFOV (deg):" image={FieldOfViewImages.vfovSrc} result={result.vfov} resLength={1} />
+              <OutputTextView text="IFOV (deg):" image={FieldOfViewImages.ifovSrc} result={result.ifov} />
+            </View>
+          }
+        </View>
+      </View>
+    </KeyboardAvoidingView>
+
   )
 };
 

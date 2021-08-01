@@ -30,24 +30,24 @@ const DRITable = (props) => {
             <View style={styles.firstItem}>
                 <Text>Detec. (m)</Text>
             </View>
-            <Text>{inputData.nato.det}</Text>
-            <Text>{inputData.human.det}</Text>
-            <Text>{inputData.obj.det}</Text>
+            <Text>{(inputData.nato.det) === 'NaN' ? "--" : inputData.nato.det}</Text>
+            <Text>{(inputData.human.det) === 'NaN' ? "--" : inputData.human.det}</Text>
+            <Text>{(inputData.obj.det) === 'NaN' ? "--" : inputData.obj.det}</Text>
         </View>
         <View style={styles.thirdRow}>
             <View style={styles.firstItem}>
                 <Text>Recog. (m)</Text>
             </View>
-            <Text> {inputData.nato.rec} </Text>
-            <Text>{inputData.human.rec}</Text>
-            <Text>{inputData.obj.rec}</Text>
+            <Text>{(inputData.nato.rec) === 'NaN' ? "--" : inputData.nato.rec}</Text>
+            <Text>{(inputData.human.rec) === 'NaN' ? "--" : inputData.human.rec}</Text>
+            <Text>{(inputData.obj.rec) === 'NaN' ? "--" : inputData.obj.rec}</Text>
         </View>
         <View style={styles.fourthRow}>
             <View style={styles.firstItem}>
                 <Text >Identif. (m)</Text>
             </View>
-            <Text>{inputData.nato.ident}</Text>
-            <Text>{inputData.human.rec}</Text>
+            <Text>{(inputData.nato.ident) === 'NaN' ? "--" : inputData.nato.ident}</Text>
+            <Text>{(inputData.human.ident) === 'NaN' ? "--" : inputData.human.ident}</Text>
             <Text> </Text>
         </View>
     </View>)

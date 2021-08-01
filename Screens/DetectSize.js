@@ -38,7 +38,7 @@ const DetectSize = (props) => {
     // only if the data is valid set the value to true else show error message and dont continue
     if (!(fl && det_pitch && targetDis && targetSizeH && targetSizeW)) {
       Alert.alert(
-        "Error",
+        "Missing Data",
         "Please fill all the fields !"
 
       )
