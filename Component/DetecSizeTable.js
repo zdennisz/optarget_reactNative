@@ -17,9 +17,9 @@ const DetecSizeTable = (props) => {
       </View>
       <View style={styles.secondRow}>
         <Image style={styles.image} source={GeneralImages.dimensionSrc} />
-        <Text>{inputData.width.toFixed(1)}</Text>
-        <Text>{inputData.height.toFixed(1)}</Text>
-        <Text>{inputData.total.toFixed(1)}</Text>
+        <Text>{Number.isNaN(inputData.width) ? "--" : inputData.width.toFixed(1)}</Text>
+        <Text>{Number.isNaN(inputData.height) ? "--" : inputData.height.toFixed(1)}</Text>
+        <Text>{Number.isNaN(inputData.total) ? "--" : inputData.total.toFixed(1)}</Text>
       </View>
     </View>
   );

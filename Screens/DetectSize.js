@@ -36,11 +36,13 @@ const DetectSize = (props) => {
   const calculateDetSizeHandler = () => {
     Keyboard.dismiss();
     // only if the data is valid set the value to true else show error message and dont continue
-    if (fl && det_pitch && targetDis && targetSizeH && targetSizeW) {
+    if (!(fl && det_pitch && targetDis && targetSizeH && targetSizeW)) {
       Alert.alert(
-        "Error !",
+        "Error",
         "Please fill all the fields !"
+
       )
+      setIsValid(false);
     } else {
       setIsValid(true);
     }
