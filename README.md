@@ -1,2 +1,18 @@
-# optarget_reactNative
-This is a good learning opportunity where I recreate android app  that I wrote in kotlin/java and trying to recreate it in React Native by using Navigation v5 and Redux as state managment.
+# OpTarget React-Native [*Under development* :construction_worker:]
+
+
+This is my clone of an app that i released at the Android play store.
+
+Can be seen below :)
+
+https://play.google.com/store/apps/details?id=com.denniszabolotny.optarget&gl=IL
+
+<hr>
+
+The purpose is to learn `React-Native` via `expo` .
+
+
+Developed via: `React.js (Hooks)` , `React Navigation v5`, `Redux`
+
+<hr>
+
