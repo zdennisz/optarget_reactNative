@@ -28,10 +28,12 @@ const DetectSize = (props) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.detectorSize);
   const [fl, setFl] = useState(false)
-  const [det_pitch, setDet_Pitch] = useState(false)
+  const [det_pitch, setDet_Pitch] = useState(true)
   const [targetDis, setTargetDis] = useState(false)
   const [targetSizeW, setTargetSizeW] = useState(false)
   const [targetSizeH, setTargetSizeH] = useState(false)
+  
+  const defVal={first:data.detectorPitch}
 
   const calculateDetSizeHandler = () => {
     Keyboard.dismiss();
@@ -57,7 +59,7 @@ const DetectSize = (props) => {
       setFl(false)
     }
   };
-  const detectorSizeHandler = (val) => {
+  const detectorPitchHandler = (val) => {
     dispatch(detector_pitch(val));
     if (val != "") {
       setDet_Pitch(true)
@@ -129,7 +131,8 @@ const DetectSize = (props) => {
               image={GeneralImages.pixelSizeSrc}
               text="Detector Pitch (mic):"
               maxLength={2}
-              handler={detectorSizeHandler}
+              handler={detectorPitchHandler}
+              defaultValue={defVal}
             />
             <TextInputController
               image={GeneralImages.targetRangeSrc}

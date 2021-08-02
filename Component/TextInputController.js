@@ -1,17 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, View, TextInput, StyleSheet, Image } from "react-native";
 
 const TextInputController = (props) => {
+
   const [input, setInput] = useState();
   const [secondInput, setSecondInput] = useState();
 
   const changeTextHandler = (event) => {
     props.handler(event);
+    setInput(event)
   };
 
   const changeTextSecondHandler = (event) => {
     props.secondHandler(event);
+    setSecondInput(event)
   };
+ 
+  useEffect(()=>{
+  if(props.twoInputValues){
+    if(props.defaultValue){
+      setInput(props.defaultValue.first.toString())
+      setSecondInput(props.defaultValue.second.toString())
+    }
+  }else{
+    if(props.defaultValue){
+      setInput(props.defaultValue.first.toString())
+    }
+  }
+
+ },[])
+
+
 
   return (
     <View style={styles.container}>

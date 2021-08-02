@@ -2,7 +2,7 @@ import { FOCAL_LENGTH, DETECTOR_PITCH, TARGET_DISTANCE, TARGET_SIZE_WIDTH, TARGE
 
 const initialState = {
   focalLength: 0,
-  detectorPitch: 0,
+  detectorPitch: 17,
   targetDistance: 0,
   targetSize: { width: 0, height: 0 },
 };

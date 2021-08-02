@@ -19,10 +19,12 @@ const DRICalculator = (props) => {
   const dispatch = useDispatch();
   const [isValid, setisValid] = useState();
   const [fl, setFl] = useState(false)
-  const [detPitch, setDetPitch] = useState(false)
+  const [detPitch, setDetPitch] = useState(true)
   let TableComponent;
   const data = useSelector((state) => state.detectorSize);
 
+  const defVal={first:data.detectorPitch}
+  
   const focalLengthHandler = (val) => {
     dispatch(focal_length(val));
     if (val != "") {
@@ -190,6 +192,7 @@ const DRICalculator = (props) => {
               text="Detector Pitch (mic):  "
               maxLength={2}
               handler={detectorPitchHandler}
+              defaultValue={defVal}
             />
           </View>
           <View style={styles.btnContainer}>

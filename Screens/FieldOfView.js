@@ -20,6 +20,9 @@ const FieldOfView = (props) => {
   const [result, setResult] = useState()
   const dispatch = useDispatch();
 
+  const detecSizeDefVal={first:detectorData.detectorPitch}
+  const settingsDefVal={first:settingsData.detectorSize.width,second:settingsData.detectorSize.height}
+  
   const detectorSizeWidthHandler = (val) => {
     dispatch(detector_size_width(val))
     if (val != "") {
@@ -119,14 +122,16 @@ const FieldOfView = (props) => {
             image={GeneralImages.pixelSizeSrc}
             text="Detector Pitch (mic):"
             maxLength={2}
-            handler={detectorPitchHandler} />
+            handler={detectorPitchHandler}
+            defaultValue={detecSizeDefVal} />
           <TextInputController
             image={GeneralImages.dimensionSrc}
             text="Detector Size (px):"
             twoInputValues={true}
             maxLength={4}
             handler={detectorSizeWidthHandler}
-            secondHandler={detectorSizeHeightHandler} />
+            secondHandler={detectorSizeHeightHandler}
+            defaultValue={settingsDefVal} />
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
