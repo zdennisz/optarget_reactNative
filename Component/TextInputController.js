@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		flexGrow: 100,
 		textAlign: "center",
+		fontSize: 20,
 	},
 	twoInput: {
 		flex: 1,

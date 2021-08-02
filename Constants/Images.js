@@ -18,6 +18,8 @@ const GeneralImages = {
 	targetRangeSrc: require("../assets/GeneralImages/targetRange.png"),
 
 	taretSizeSrc: require("../assets/GeneralImages/targetSize.png"),
+
+	linePairSrc: require("../assets/GeneralImages/linePair.png"),
 };
 
 const DriTableImages = {
