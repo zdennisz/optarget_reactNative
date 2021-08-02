@@ -1,108 +1,97 @@
-import * as settingsActions from '../Actions/settings'
+import * as settingsActions from "../Actions/settings";
 const initialState = {
-    nato: {
-        width: 2.3,
-        height: 2.3
-    },
-    human: {
-        width: 0.5,
-        height: 1.7
-    },
-    obj: {
-        width: 0.5,
-        height: 0.5
-    },
-    detectorSize: {
-        width: 640,
-        height: 480
-    },
-    linePairDet: 0,
-    linepairDetObj: 0,
-    linePairRec: 0,
-    linePairIdent: 0
-}
+	nato: {
+		width: 2.3,
+		height: 2.3,
+	},
+	human: {
+		width: 0.5,
+		height: 1.7,
+	},
+	obj: {
+		width: 0.5,
+		height: 0.5,
+	},
+	detectorSize: {
+		width: 640,
+		height: 480,
+	},
+	linePairDet: 0,
+	linepairDetObj: 0,
+	linePairRec: 0,
+	linePairIdent: 0,
+};
 
 const settingsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case settingsActions.LINE_PAIR_REC:
-            return { ...state, linePairRec: action.linePairRec };
-        case settingsActions.LINE_PAIR_DET:
-            return { ...state, linePairDet: action.linePairDet };
-        case settingsActions.LINE_PAIR_DET_OBJ:
-            return { ...state, linepairDetObj: action.linePairDetObj };
-        case settingsActions.LINE_PAIR_IDENT:
-            return { ...state, linePairIdent: action.linePairIdent };
+	switch (action.type) {
+		case settingsActions.LINE_PAIR_REC:
+			return { ...state, linePairRec: action.linePairRec };
+		case settingsActions.LINE_PAIR_DET:
+			return { ...state, linePairDet: action.linePairDet };
+		case settingsActions.LINE_PAIR_DET_OBJ:
+			return { ...state, linepairDetObj: action.linePairDetObj };
+		case settingsActions.LINE_PAIR_IDENT:
+			return { ...state, linePairIdent: action.linePairIdent };
 
-        case settingsActions.DETECTOR_SIZE_HEIGHT:
+		case settingsActions.DETECTOR_SIZE_HEIGHT:
+			const detectorSizeHeight = { ...state.detectorSize };
 
-            const detectorSizeHeight = { ...state.detectorSize }
+			detectorSizeHeight.height = action.detectorSizeHeight;
 
-            detectorSizeHeight.height = action.detectorSizeHeight
+			return { ...state, detectorSize: detectorSizeHeight };
 
-            return { ...state, detectorSize: detectorSizeHeight };
+		case settingsActions.DETECTOR_SIZE_WIDTH:
+			const detectorSizeWidth = { ...state.detectorSize };
 
-        case settingsActions.DETECTOR_SIZE_WIDTH:
+			detectorSizeWidth.width = action.detectorSizeWidth;
 
-            const detectorSizeWidth = { ...state.detectorSize }
+			return { ...state, detectorSize: detectorSizeWidth };
 
-            detectorSizeWidth.width = action.detectorSizeWidth
+		case settingsActions.TARGET_SIZE_NATO_HEIGHT:
+			const tsNatoHeight = { ...state.nato };
 
-            return { ...state, detectorSize: detectorSizeWidth };
+			tsNatoHeight.height = action.targetSizeHeight;
 
+			return { ...state, nato: tsNatoHeight };
 
-        case settingsActions.TARGET_SIZE_NATO_HEIGHT:
+		case settingsActions.TARGET_SIZE_NATO_WIDTH:
+			const tsNatoWidth = { ...state.nato };
 
-            const tsNatoHeight = { ...state.nato }
+			tsNatoWidth.width = action.targetSizeWidth;
 
-            tsNatoHeight.height = action.targetSizeHeight
+			return { ...state, nato: tsNatoWidth };
 
-            return { ...state, nato: tsNatoHeight };
+		case settingsActions.TARGET_SIZE_HUMAN_HEIGHT:
+			const tsHumanHeight = { ...state.human };
 
-        case settingsActions.TARGET_SIZE_NATO_WIDTH:
+			tsHumanHeight.height = action.targetSizeHeight;
 
-            const tsNatoWidth = { ...state.nato }
+			return { ...state, human: tsHumanHeight };
 
-            tsNatoWidth.width = action.targetSizeWidth
+		case settingsActions.TARGET_SIZE_HUMAN_WIDTH:
+			const tsHumanWidth = { ...state.human };
 
-            return { ...state, nato: tsNatoWidth };
+			tsHumanWidth.width = action.targetSizeWidth;
 
-        case settingsActions.TARGET_SIZE_HUMAN_HEIGHT:
+			return { ...state, human: tsHumanWidth };
 
-            const tsHumanHeight = { ...state.human }
+		case settingsActions.TARGET_SIZE_OBJ_HEIGHT:
+			const tsObjHeight = { ...state.obj };
 
-            tsHumanHeight.height = action.targetSizeHeight
+			tsObjHeight.height = action.targetSizeHeight;
 
-            return { ...state, human: tsHumanHeight };
+			return { ...state, obj: tsObjHeight };
 
-        case settingsActions.TARGET_SIZE_HUMAN_WIDTH:
+		case settingsActions.TARGET_SIZE_OBJ_WIDTH:
+			const tsObjWidth = { ...state.obj };
 
-            const tsHumanWidth = { ...state.human }
+			tsObjWidth.width = action.targetSizeWidth;
 
-            tsHumanWidth.width = action.targetSizeWidth
-
-            return { ...state, human: tsHumanWidth };
-
-        case settingsActions.TARGET_SIZE_OBJ_HEIGHT:
-
-            const tsObjHeight = { ...state.obj }
-
-            tsObjHeight.height = action.targetSizeHeight
-
-            return { ...state, obj: tsObjHeight };
-
-        case settingsActions.TARGET_SIZE_OBJ_WIDTH:
-
-            const tsObjWidth = { ...state.obj }
-
-            tsObjWidth.width = action.targetSizeWidth
-
-            return { ...state, obj: tsObjWidth };
-        default:
-            return state;
-    };
-}
+			return { ...state, obj: tsObjWidth };
+		default:
+			return state;
+	}
+};
 //TODO fix detector pitch since it is shared among two stores
-
-
 
 export default settingsReducer;

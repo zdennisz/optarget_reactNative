@@ -18,66 +18,65 @@ export const DETECTOR_SIZE_HEIGHT = "DETECTOR_SIZE_HEIGHT";
 //Detector Pitch
 export const DETECTOR_PITCH = "DETECTOR_PITCH";
 
-
 //line pair actions
 export const line_pair_det = (val) => {
-    const v = parseInt(val, 10)
-    return { type: LINE_PAIR_DET, linePairDet: v }
-}
+	const v = parseInt(val, 10);
+	return { type: LINE_PAIR_DET, linePairDet: v };
+};
 
 export const line_pair_det_Obj = (val) => {
-    const v = parseInt(val, 10)
-    return { type: LINE_PAIR_DET_OBJ, linePairDetObj: v }
-}
+	const v = parseInt(val, 10);
+	return { type: LINE_PAIR_DET_OBJ, linePairDetObj: v };
+};
 
 export const line_pair_rec = (val) => {
-    const v = parseInt(val, 10)
-    return { type: LINE_PAIR_REC, linePairRec: v }
-}
+	const v = parseInt(val, 10);
+	return { type: LINE_PAIR_REC, linePairRec: v };
+};
 
 export const line_pair_ident = (val) => {
-    const v = parseInt(val, 10)
-    return { type: LINE_PAIR_IDENT, linePairIdent: v }
-}
+	const v = parseInt(val, 10);
+	return { type: LINE_PAIR_IDENT, linePairIdent: v };
+};
 
 //Target Size actions
 export const target_size_nato_width = (val) => {
-    const v = parseInt(val, 10)
-    return { type: TARGET_SIZE_NATO_WIDTH, targetSizeWidth: v }
-}
+	const v = parseInt(val, 10);
+	return { type: TARGET_SIZE_NATO_WIDTH, targetSizeWidth: v };
+};
 export const target_size_nato_height = (val) => {
-    const v = parseInt(val, 10)
-    return { type: TARGET_SIZE_NATO_HEIGHT, targetSizeHeight: v }
-}
+	const v = parseInt(val, 10);
+	return { type: TARGET_SIZE_NATO_HEIGHT, targetSizeHeight: v };
+};
 
 export const target_size_human_width = (val) => {
-    const v = parseInt(val, 10)
-    return { type: TARGET_SIZE_HUMAN_WIDTH, targetSizeWidth: v }
-}
+	const v = parseInt(val, 10);
+	return { type: TARGET_SIZE_HUMAN_WIDTH, targetSizeWidth: v };
+};
 export const target_size_human_height = (val) => {
-    const v = parseInt(val, 10)
-    return { type: TARGET_SIZE_HUMAN_HEIGHT, targetSizeHeight: v }
-}
+	const v = parseInt(val, 10);
+	return { type: TARGET_SIZE_HUMAN_HEIGHT, targetSizeHeight: v };
+};
 
 export const target_size_obj_width = (val) => {
-    const v = parseInt(val, 10)
-    return { type: TARGET_SIZE_OBJ_WIDTH, targetSizeWidth: v }
-}
+	const v = parseInt(val, 10);
+	return { type: TARGET_SIZE_OBJ_WIDTH, targetSizeWidth: v };
+};
 export const target_size_obj_height = (val) => {
-    const v = parseInt(val, 10)
-    return { type: TARGET_SIZE_OBJ_HEIGHT, targetSizeHeight: v }
-}
+	const v = parseInt(val, 10);
+	return { type: TARGET_SIZE_OBJ_HEIGHT, targetSizeHeight: v };
+};
 //Detector Size Actions
 export const detector_size_width = (val) => {
-    const v = parseInt(val, 10)
-    return { type: DETECTOR_SIZE_WIDTH, detectorSizeWidth: v }
-}
+	const v = parseInt(val, 10);
+	return { type: DETECTOR_SIZE_WIDTH, detectorSizeWidth: v };
+};
 export const detector_size_height = (val) => {
-    const v = parseInt(val, 10)
-    return { type: DETECTOR_SIZE_HEIGHT, detectorSizeHeight: v }
-}
+	const v = parseInt(val, 10);
+	return { type: DETECTOR_SIZE_HEIGHT, detectorSizeHeight: v };
+};
 //Detector Pitch
 export const detector_pitch = (val) => {
-    const v = parseInt(val, 10)
-    return { type: DETECTOR_PITCH, detectorPitch: v }
-}
+	const v = parseInt(val, 10);
+	return { type: DETECTOR_PITCH, detectorPitch: v };
+};
