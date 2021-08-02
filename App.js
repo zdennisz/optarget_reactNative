@@ -31,7 +31,7 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ title: "OpTarget" }}
+            options={{ title: "" }}
           />
           <Stack.Screen
             name="DriCalc"

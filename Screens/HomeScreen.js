@@ -1,9 +1,11 @@
-import { View, StyleSheet, Modal, Text } from "react-native";
-import React from "react";
+import { View, StyleSheet, Modal, Text, Platform } from "react-native";
+import React, { useEffect } from "react";
 import HomeScreenButton from "../Component/HomeScreenButton";
 import { Images } from "../Constants/Images";
 import { useState } from "react";
 import PopupScreen from "../Component/PopupScreen/PopupScreen";
+import { HeaderButtons,Item } from "react-navigation-header-buttons";
+import HeaderButton from '../Component/HeaderButton'
 
 const HomeScreen = (props) => {
   const { navigation } = props;
@@ -21,6 +23,9 @@ const HomeScreen = (props) => {
     navigation.navigate("FieldOfView");
   };
 
+  const settingsHandler=()=>{
+    navigation.navigate("Settings")
+  }
   const requiredLensHandler = () => {
     setModalVisible(modalVisible => !modalVisible)
 
@@ -41,6 +46,21 @@ const HomeScreen = (props) => {
     }
 
   }
+useEffect(()=>{
+  navigation.setOptions({
+    headerRight:()=>(
+      <HeaderButtons HeaderButtonComponent={HeaderButton}> 
+        <Item 
+          title="Settings" 
+          iconName={Platform.OS==='andorid'?'md-settings':'ios-settings'} 
+          onPress={settingsHandler}/>
+
+      </HeaderButtons>
+    )
+  });
+},[])
+
+
 
   return (
     <View style={styles.container}>
