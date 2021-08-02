@@ -1,4 +1,4 @@
-import { View, StyleSheet, Platform, StatusBar } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import React, { useEffect } from "react";
 import HomeScreenButton from "../Component/HomeScreenButton";
 import { Images } from "../Constants/Images";
@@ -62,7 +62,6 @@ const HomeScreen = (props) => {
 
 	return (
 		<View style={styles.container}>
-			<StatusBar animated={true} backgroundColor='#61dafb' />
 			{modalVisible && (
 				<PopupScreen handler={operateModalHandler} visibility={modalVisible} />
 			)}
