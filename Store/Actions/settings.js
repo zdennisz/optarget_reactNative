@@ -17,6 +17,8 @@ export const DETECTOR_SIZE_WIDTH = "DETECTOR_SIZE_WIDTH";
 export const DETECTOR_SIZE_HEIGHT = "DETECTOR_SIZE_HEIGHT";
 //Detector Pitch
 export const DETECTOR_PITCH = "DETECTOR_PITCH";
+//Restore to default settings
+export const RESTORE_DEFAULT_SETTINGS = "RESTORE_DEFAULT_SETTINGS";
 
 //line pair actions
 export const line_pair_det = (val) => {
@@ -79,4 +81,8 @@ export const detector_size_height = (val) => {
 export const detector_pitch = (val) => {
 	const v = parseInt(val, 10);
 	return { type: DETECTOR_PITCH, detectorPitch: v };
+};
+
+export const restore_default_settings = () => {
+	return { type: RESTORE_DEFAULT_SETTINGS };
 };

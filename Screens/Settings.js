@@ -1,4 +1,5 @@
 import {
+	Alert,
 	Button,
 	Platform,
 	ScrollView,
@@ -7,7 +8,7 @@ import {
 	View,
 } from "react-native";
 import TextInputController from "../Component/TextInputController";
-import React from "react";
+import React, { useEffect } from "react";
 import { GeneralImages } from "../Constants/Images";
 import Colors from "../Constants/Colors";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,8 +26,10 @@ import {
 	detector_size_width,
 	detector_size_height,
 	detector_pitch,
+	restore_default_settings,
 } from "../Store/Actions/settings";
 const Settings = (props) => {
+	const { navigation } = props;
 	const settingsData = useSelector((state) => state.settings);
 	const detectorData = useSelector((state) => state.detectorSize);
 	const dispatch = useDispatch();
@@ -69,6 +72,27 @@ const Settings = (props) => {
 	};
 	const detectorPitch = (val) => {
 		dispatch(detector_pitch(val));
+	};
+
+	const restoreToDefaultSettings = () => {
+		Alert.alert(
+			"Warning",
+			"All changes made to the settings will be erased, Are you sure?",
+			[
+				{
+					text: "Cancel",
+					onPress: () => console.log("Noting happens"),
+					style: "cancel",
+				},
+				{
+					text: "Ok",
+					onPress: () => {
+						dispatch(restore_default_settings());
+						navigation.navigate("Home");
+					},
+				},
+			]
+		);
 	};
 
 	return (
@@ -176,7 +200,7 @@ const Settings = (props) => {
 					<Button
 						color={Platform.OS === "android" ? Colors.Primary : "#007AFF"}
 						title='Restore to Default Settings'
-						onPress={() => {}}
+						onPress={restoreToDefaultSettings}
 					></Button>
 				</View>
 			</View>

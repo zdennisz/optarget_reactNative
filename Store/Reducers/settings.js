@@ -88,6 +88,9 @@ const settingsReducer = (state = initialState, action) => {
 			tsObjWidth.width = action.targetSizeWidth;
 
 			return { ...state, obj: tsObjWidth };
+		case settingsActions.RESTORE_DEFAULT_SETTINGS:
+			return initialState;
+
 		default:
 			return state;
 	}
