@@ -11,7 +11,7 @@ import TextInputController from "../Component/TextInputController";
 import { GeneralImages } from "../Constants/Images";
 import { focal_length, detector_pitch } from "../Store/Actions/detectorSize";
 import { useSelector, useDispatch } from "react-redux";
-import LineDetectionSettings from "../Constants/LineDetection";
+
 import { Nato, Human, Obj } from "../Constants/TargetSizes";
 import DRITable from "../Component/DRITable";
 
@@ -22,6 +22,7 @@ const DRICalculator = (props) => {
 	const [detPitch, setDetPitch] = useState(true);
 	let TableComponent;
 	const data = useSelector((state) => state.detectorSize);
+	const defaultSettings = useSelector((state) => state.settings);
 
 	const defVal = { first: data.detectorPitch };
 
@@ -80,21 +81,21 @@ const DRICalculator = (props) => {
 			data.detectorPitch,
 			data.focalLength,
 			Nato,
-			LineDetectionSettings.linePairDet
+			defaultSettings.linePairDet
 		);
 
 		res.human.det = calcTarget(
 			data.detectorPitch,
 			data.focalLength,
 			Human,
-			LineDetectionSettings.linePairDet
+			defaultSettings.linePairDet
 		);
 
 		res.obj.det = calcTarget(
 			data.detectorPitch,
 			data.focalLength,
 			Obj,
-			LineDetectionSettings.linePairDetObj
+			defaultSettings.linePairDetObj
 		);
 		res.nato.det = res.nato.det.toFixed(1);
 		res.human.det = res.human.det.toFixed(1);
@@ -107,7 +108,7 @@ const DRICalculator = (props) => {
 			data.detectorPitch,
 			data.focalLength,
 			Nato,
-			LineDetectionSettings.linePairRec
+			defaultSettings.linePairRec
 		);
 
 		//human
@@ -115,14 +116,14 @@ const DRICalculator = (props) => {
 			data.detectorPitch,
 			data.focalLength,
 			Human,
-			LineDetectionSettings.linePairRec
+			defaultSettings.linePairRec
 		);
 		//obj
 		res.obj.rec = calcTarget(
 			data.detectorPitch,
 			data.focalLength,
 			Obj,
-			LineDetectionSettings.linePairRec
+			defaultSettings.linePairRec
 		);
 
 		res.nato.rec = res.nato.rec.toFixed(1);
@@ -135,14 +136,14 @@ const DRICalculator = (props) => {
 			data.detectorPitch,
 			data.focalLength,
 			Nato,
-			LineDetectionSettings.linePairIdent
+			defaultSettings.linePairIdent
 		);
 
 		res.human.ident = calcTarget(
 			data.detectorPitch,
 			data.focalLength,
 			Human,
-			LineDetectionSettings.linePairIdent
+			defaultSettings.linePairIdent
 		);
 		res.nato.ident = res.nato.ident.toFixed(1);
 		res.human.ident = res.human.ident.toFixed(1);

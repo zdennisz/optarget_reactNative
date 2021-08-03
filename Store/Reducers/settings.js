@@ -16,10 +16,10 @@ const initialState = {
 		width: 640,
 		height: 480,
 	},
-	linePairDet: 0,
-	linepairDetObj: 0,
-	linePairRec: 0,
-	linePairIdent: 0,
+	linePairDet: 2.0,
+	linepairDetObj: 1.2,
+	linePairRec: 6.0,
+	linePairIdent: 10.0,
 };
 
 const settingsReducer = (state = initialState, action) => {
