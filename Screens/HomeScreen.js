@@ -84,7 +84,7 @@ const HomeScreen = (props) => {
 					navigate={fovCalcHandler}
 				/>
 				<HomeScreenButton
-					title='DRI Calculator'
+					title='Nyquist DRI   Calculator'
 					img={Images.driCalculatorSrc}
 					navigate={driCalcHandler}
 				/>
